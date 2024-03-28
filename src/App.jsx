@@ -17,7 +17,7 @@ function App() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    const fetchData = async () => {
+    (async () => {
       try {
         // setLoading(true);
         setError(false);
@@ -32,12 +32,10 @@ function App() {
         }
         setError(true);
       }
-      //  finally {
+      // finally {
       //   setLoading(false);
       // }
-    };
-
-    fetchData();
+    })();
 
     return () => {
       controller.abort();
